@@ -2,7 +2,11 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#00b96b", // Replace with your Ant Design primary color
+      },
+    },
   },
   plugins: [],
 };
