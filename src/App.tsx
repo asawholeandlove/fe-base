@@ -3,20 +3,9 @@ import "./global.css";
 import { Button } from "antd";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  const calculate = () => {
-    console.log("calculate");
-    return 99999 * 9999;
-  };
-
-  const test = calculate();
-
-  console.log("re-render");
-
   return (
     <>
-      <Button>Hello</Button>
+      <button className="flex text-red-300">Hello</button>
     </>
   );
 }
