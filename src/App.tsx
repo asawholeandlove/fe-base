@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./global.css";
+import { Button } from "antd";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,14 +16,7 @@ function App() {
 
   return (
     <>
-      <button
-        onClick={() => {
-          setCount(count + 1);
-        }}
-      >
-        change
-        {test}
-      </button>
+      <Button>Hello</Button>
     </>
   );
 }
