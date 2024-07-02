@@ -25,14 +25,6 @@ export default function EFormItem({
     });
   }, [label, required, rules, childrenName]);
 
-  const isRequireMark = useMemo(() => {
-    return !!modifiedRules?.find((rule) => {
-      if (typeof rule === "function") return false;
-      const { required } = rule;
-      return !!required;
-    });
-  }, [modifiedRules]);
-
   return (
     <StyledFormItem
       layout={layout}
@@ -41,7 +33,7 @@ export default function EFormItem({
       {...rest}
     >
       {React.isValidElement(children) &&
-        React.cloneElement(children, { label, required: isRequireMark } as any)}
+        React.cloneElement(children, { label } as any)}
     </StyledFormItem>
   );
 }

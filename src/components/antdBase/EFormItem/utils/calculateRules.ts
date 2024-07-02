@@ -44,14 +44,14 @@ export const calculateRules = ({
     (rule) => typeof rule !== "function" && rule.required,
   );
 
-  if (required && lowerLabel) {
+  if (required) {
     if (!hasRequiredRule) {
       const msgI18 = componentName.match(/select|date/i)
         ? "Vui lòng chọn"
         : "Vui lòng nhập";
       modifiedRules.push({
         required: true,
-        message: `${msgI18} ${lowerLabel}!`,
+        message: `${msgI18} ${lowerLabel || ""}!`,
       });
     }
   }
