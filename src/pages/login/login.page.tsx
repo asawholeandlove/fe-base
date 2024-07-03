@@ -1,8 +1,8 @@
 import { Button, Form, Input } from "antd";
-import EFormItem from "./components/antdBase/EFormItem";
-import EInput from "./components/antdBase/EInput";
+import EFormItem from "~/components/antdBase/EFormItem";
+import EInput from "~/components/antdBase/EInput";
 
-function App() {
+function LoginPage() {
   const onFinish = (values: any) => {
     console.log("Success:", values);
   };
@@ -32,4 +32,4 @@ function App() {
   );
 }
 
-export default App;
+export default LoginPage;
