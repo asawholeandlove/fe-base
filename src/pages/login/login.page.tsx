@@ -1,4 +1,5 @@
 import { Button, Form, Input } from "antd";
+import { Link } from "react-router-dom";
 import EFormItem from "~/components/antdBase/EFormItem";
 import EInput from "~/components/antdBase/EInput";
 
@@ -8,27 +9,32 @@ function LoginPage() {
   };
 
   return (
-    <div className="flex h-screen items-center justify-center bg-gray-700">
-      <div className="border-gray w-full max-w-md rounded-lg border bg-white p-8 shadow-lg">
-        <h2 className="mb-6 text-center text-2xl font-semibold">Login</h2>
+    <>
+      <h2 className="mb-6 text-center text-2xl font-semibold">Đăng nhập</h2>
 
-        <Form layout="vertical" onFinish={onFinish}>
-          <EFormItem label="Username" name="username" required>
-            <EInput />
-          </EFormItem>
+      <Form layout="vertical" onFinish={onFinish}>
+        <EFormItem label="Username" name="username" required>
+          <EInput />
+        </EFormItem>
 
-          <EFormItem label="Password" name="password" required>
-            <EInput />
-          </EFormItem>
+        <EFormItem label="Password" name="password" required>
+          <EInput />
+        </EFormItem>
 
-          <EFormItem>
-            <Button type="primary" htmlType="submit" className="w-full">
-              Login
-            </Button>
-          </EFormItem>
-        </Form>
-      </div>
-    </div>
+        <div className="mb-3">
+          <span>Chưa có tài khoản?</span>
+          <Link to="/auth/register" className="ml-1 text-blue-500">
+            Đăng ký ngay
+          </Link>
+        </div>
+
+        <EFormItem>
+          <Button type="primary" htmlType="submit" className="w-full">
+            Đăng nhập
+          </Button>
+        </EFormItem>
+      </Form>
+    </>
   );
 }
 

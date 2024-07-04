@@ -6,7 +6,7 @@ interface Props {
 }
 
 export default function AuthGuard({ children }: Props) {
-  // return <LoadingPage />;
+  return <LoadingPage />;
 
   return children;
 }

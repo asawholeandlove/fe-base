@@ -2,6 +2,8 @@ import { RouteObject } from "react-router-dom";
 import LoginPage from "~/pages/login";
 import DashboardLayout from "./layouts/dashboard";
 import AuthGuard from "~/components/auth/AuthGuard";
+import AuthLayout from "./layouts/auth";
+import RegisterPage from "~/pages/register";
 
 export type Route = RouteObject & {
   something?: string;
@@ -10,8 +12,18 @@ export type Route = RouteObject & {
 const routes: Route[] = [
   // Public routes
   {
-    path: "/login",
-    element: <LoginPage />,
+    path: "/auth",
+    element: <AuthLayout />,
+    children: [
+      {
+        path: "login",
+        element: <LoginPage />,
+      },
+      {
+        path: "register",
+        element: <RegisterPage />,
+      },
+    ],
   },
   // Protected routes
   {
@@ -21,6 +33,12 @@ const routes: Route[] = [
         <DashboardLayout />
       </AuthGuard>
     ),
+    children: [
+      {
+        index: true,
+        element: <div>Dashboard</div>,
+      },
+    ],
   },
 ];
 
