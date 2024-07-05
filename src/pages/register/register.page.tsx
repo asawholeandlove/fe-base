@@ -27,9 +27,8 @@ function RegisterPage() {
         <EFormItem label="Username" name="username" required>
           <EInput />
         </EFormItem>
-
         <EFormItem label="Password" name="password" required>
-          <EInput />
+          <EInput type="password" />
         </EFormItem>
 
         <EFormItem>

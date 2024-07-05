@@ -1,5 +1,10 @@
-import React from "react";
+import { RefetchAll } from "~/components/tools/RefetchAll";
 
 export default function DashboardLayout() {
-  return <div>dashboard.layout</div>;
+  return (
+    <>
+      <RefetchAll />
+      <div>dashboard.layout</div>
+    </>
+  );
 }

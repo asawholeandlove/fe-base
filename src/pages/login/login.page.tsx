@@ -1,11 +1,18 @@
-import { Button, Form, Input } from "antd";
-import { Link } from "react-router-dom";
+import { App, Button, Form, Input } from "antd";
+import { Link, useNavigate } from "react-router-dom";
+import authApis from "~/apis/auths.api";
 import EFormItem from "~/components/antdBase/EFormItem";
 import EInput from "~/components/antdBase/EInput";
 
 function LoginPage() {
-  const onFinish = (values: any) => {
-    console.log("Success:", values);
+  const { message } = App.useApp();
+  const navigate = useNavigate();
+
+  const onFinish = async (values: any) => {
+    const { accessToken } = await authApis.login(values);
+    message.success("Đăng nhập thành công!");
+    localStorage.setItem("accessToken", accessToken);
+    navigate("/");
   };
 
   return (
@@ -18,7 +25,7 @@ function LoginPage() {
         </EFormItem>
 
         <EFormItem label="Password" name="password" required>
-          <EInput />
+          <EInput type="password" />
         </EFormItem>
 
         <div className="mb-3">
