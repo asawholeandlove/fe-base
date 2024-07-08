@@ -16,7 +16,10 @@ export default function Header() {
 
   return (
     <div className="fixed left-0 right-0 top-0 flex h-[65px] items-center justify-between border-b border-gray-300 bg-white px-10">
-      <div className="flex items-center gap-2">
+      <div
+        className="flex cursor-pointer items-center gap-2"
+        onClick={() => navigate("/")}
+      >
         <FormOutlined className="relative top-[2px] text-[40px] text-blue-500" />
         <div>
           <h1 className="text-2xl font-bold">Survey App</h1>

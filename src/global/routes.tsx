@@ -38,6 +38,10 @@ const routes: Route[] = [
         index: true,
         element: <div>Dashboard</div>,
       },
+      {
+        path: "config",
+        element: <div>Config page</div>,
+      },
     ],
   },
 ];

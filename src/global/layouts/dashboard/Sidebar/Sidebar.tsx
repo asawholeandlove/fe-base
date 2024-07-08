@@ -14,8 +14,8 @@ export default function Sidebar() {
             key: "schemas",
           },
           {
-            label: "Manage User",
-            key: "manage-schema",
+            label: <Link to="/config">Config</Link>,
+            key: "config",
           },
         ]}
       />
