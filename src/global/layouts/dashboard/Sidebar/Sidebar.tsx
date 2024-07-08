@@ -17,6 +17,10 @@ export default function Sidebar() {
             label: "Manage User",
             key: "manage-schema",
           },
+          {
+            label: "Manage Data",
+            key: "manage-data",
+          },
         ]}
       />
     </div>
