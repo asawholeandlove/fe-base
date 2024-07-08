@@ -19,7 +19,6 @@ export default function AuthGuard({ children }: Props) {
     queryFn: () => authApis.getInfo(),
     enabled: !!token,
   });
-  console.log("error :", error);
 
   useEffect(() => {
     if (!token) {

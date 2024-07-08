@@ -2,7 +2,9 @@ import {
   BellOutlined,
   CarOutlined,
   FormOutlined,
+  LogoutOutlined,
   MailOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
 import { Dropdown } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -30,12 +32,12 @@ export default function Header() {
               {
                 label: "Thông tin cá nhân",
                 key: "profile",
-                icon: <CarOutlined />,
+                icon: <UserOutlined />,
               },
               {
                 key: "logout",
                 label: "Đăng xuất",
-                icon: <CarOutlined />,
+                icon: <LogoutOutlined />,
                 onClick() {
                   localStorage.removeItem("accessToken");
                   navigate("/auth/login");

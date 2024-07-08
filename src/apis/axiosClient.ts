@@ -27,9 +27,11 @@ axiosClient.interceptors.response.use(
   },
   async (error) => {
     const originalRequest = error.config;
+    // handle expired token
     if (
       axios.isAxiosError(error) &&
       error.response?.status === 401 &&
+      (error.response as any)?.data?.errorCode === "INVALID_TOKEN" &&
       !originalRequest._retry
     ) {
       const accessToken = localStorage.getItem("accessToken");
