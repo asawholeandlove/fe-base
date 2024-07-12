@@ -13,7 +13,7 @@ const axiosClient = axios.create({
 // Middleware for request
 axiosClient.interceptors.request.use((config) => {
   // Set the Authorization header for each request
-  config.headers.Authorization = `Bearer ${localStorage.getItem("accessToken") ?? undefined}`;
+  config.headers.Authorization = `Bearer ${localStorage.getItem("accessToken") ?? ""}`;
   return config;
 });
 
@@ -50,11 +50,13 @@ axiosClient.interceptors.response.use(
           window.location.href = "/auth/login";
         }
       } else {
+        console.log("come here");
         window.location.href = "/auth/login";
       }
     }
 
     message.error(error.response?.data?.message || error.message);
+
     console.log("error :", error);
     throw error;
   },

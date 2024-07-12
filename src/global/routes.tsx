@@ -4,6 +4,7 @@ import DashboardLayout from "./layouts/dashboard";
 import AuthGuard from "~/components/auth/AuthGuard";
 import AuthLayout from "./layouts/auth";
 import RegisterPage from "~/pages/register";
+import FormList from "~/pages/form";
 
 export type Route = RouteObject & {
   something?: string;
@@ -36,7 +37,7 @@ const routes: Route[] = [
     children: [
       {
         index: true,
-        element: <div>Dashboard</div>,
+        element: <FormList />,
       },
       {
         path: "config",

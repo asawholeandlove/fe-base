@@ -1,4 +1,5 @@
 import { App, Button, Form, Input } from "antd";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authApis from "~/apis/auths.api";
 import EFormItem from "~/components/antdBase/EFormItem";
@@ -7,12 +8,18 @@ import EInput from "~/components/antdBase/EInput";
 function LoginPage() {
   const { message } = App.useApp();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
 
   const onFinish = async (values: any) => {
-    const { accessToken } = await authApis.login(values);
-    message.success("Đăng nhập thành công!");
-    localStorage.setItem("accessToken", accessToken);
-    navigate("/");
+    try {
+      setLoading(true);
+      const { accessToken } = await authApis.login(values);
+      message.success("Đăng nhập thành công!");
+      localStorage.setItem("accessToken", accessToken);
+      navigate("/");
+    } catch (error) {}
+
+    setLoading(false);
   };
 
   return (
@@ -36,7 +43,12 @@ function LoginPage() {
         </div>
 
         <EFormItem>
-          <Button type="primary" htmlType="submit" className="w-full">
+          <Button
+            type="primary"
+            htmlType="submit"
+            className="w-full"
+            loading={loading}
+          >
             Đăng nhập
           </Button>
         </EFormItem>

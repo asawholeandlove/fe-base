@@ -11,10 +11,12 @@ function RegisterPage() {
   const { message } = App.useApp();
 
   const onFinish = async (values: any) => {
-    setLoading(true);
-    await userApis.create(values);
-    message.success("Đăng ký thành công. Bạn đã có thể đăng nhập!");
-    navigate("/auth/login");
+    try {
+      setLoading(true);
+      await userApis.create(values);
+      message.success("Đăng ký thành công. Bạn đã có thể đăng nhập!");
+      navigate("/auth/login");
+    } catch (error) {}
 
     setLoading(false);
   };

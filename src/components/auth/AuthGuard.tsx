@@ -21,7 +21,7 @@ export default function AuthGuard({ children }: Props) {
   });
 
   useEffect(() => {
-    if (!token) {
+    if (!token || error) {
       navigate("/auth/login");
     }
   }, [token, error, navigate]);
