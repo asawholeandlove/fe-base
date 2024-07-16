@@ -2,6 +2,8 @@ import {
   DeleteOutlined,
   EditFilled,
   EllipsisOutlined,
+  ProfileOutlined,
+  RocketOutlined,
 } from "@ant-design/icons";
 import { Dropdown, TableProps, Tag } from "antd";
 import { TForm } from "~/types/forms.type";
@@ -59,6 +61,19 @@ export const getColumns = ({ onDelete, onEdit }: Props) => {
                   label: "Xoá",
                   icon: <DeleteOutlined />,
                   onClick: () => onDelete(_id),
+                },
+                {
+                  key: "live",
+                  label: "Làm form",
+                  icon: <RocketOutlined />,
+                  onClick: () => window.open(`/submission/${_id}`),
+                },
+
+                {
+                  key: "result",
+                  label: "Xem kết quả",
+                  icon: <ProfileOutlined />,
+                  onClick: () => window.open(`/submission/view/${_id}`),
                 },
               ],
             }}

@@ -27,6 +27,7 @@ export default function ETextArea({
     <Input.TextArea
       allowClear={allowClear}
       placeholder={placeholder}
+      autoSize={{ minRows: 3 }}
       {...rest}
     />
   );

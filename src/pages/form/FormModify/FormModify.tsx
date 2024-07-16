@@ -1,10 +1,11 @@
-import { App, Button, Form, Tabs } from "antd";
+import { App, Button, Form, Space, Tabs } from "antd";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import BasicForm from "./components/BasicForm";
 import formApis from "~/apis/forms.api";
 import FieldsForm from "./components/FieldsForm";
 import { useQuery } from "@tanstack/react-query";
+import { ArrowLeftOutlined, BackwardFilled } from "@ant-design/icons";
 
 export default function FormModify() {
   const { pathname } = useLocation();
@@ -53,9 +54,23 @@ export default function FormModify() {
     >
       {/* Header */}
       <div className="mb-5 flex items-center justify-between">
-        <h1 className="text-xl font-bold">
-          {mode === "add" ? "Tạo mới" : "Chỉnh sửa"} form
-        </h1>
+        <Space>
+          <ArrowLeftOutlined
+            className="cursor-pointer"
+            onClick={() => navigate(-1)}
+          />
+          <Form.Item noStyle shouldUpdate>
+            {() => {
+              return (
+                <h1 className="text-xl font-bold">
+                  {mode === "add" ? "Tạo mới" : "Chỉnh sửa"} form
+                  {form.getFieldValue("title") &&
+                    ` #${form.getFieldValue("title")}`}
+                </h1>
+              );
+            }}
+          </Form.Item>
+        </Space>
         <Button type="primary" htmlType="submit" loading={loading}>
           Lưu dữ liệu
         </Button>

@@ -6,6 +6,7 @@ import AuthLayout from "./layouts/auth";
 import RegisterPage from "~/pages/register";
 import FormList from "~/pages/form";
 import FormModify from "~/pages/form/FormModify";
+import SubmissionPage from "~/pages/submission";
 
 export type Route = RouteObject & {
   something?: string;
@@ -27,7 +28,19 @@ const routes: Route[] = [
       },
     ],
   },
+  {
+    path: "submission/:id",
+    element: <SubmissionPage />,
+  },
   // Protected routes
+  {
+    path: "submission/view/:id",
+    element: (
+      <AuthGuard>
+        <SubmissionPage />
+      </AuthGuard>
+    ),
+  },
   {
     path: "/",
     element: (
@@ -57,6 +70,7 @@ const routes: Route[] = [
           },
         ],
       },
+
       {
         path: "config",
         element: <div>Config page</div>,

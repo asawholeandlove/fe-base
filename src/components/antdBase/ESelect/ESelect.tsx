@@ -22,7 +22,7 @@ export default function ESelect({
 
   const placeholder = useMemo(() => {
     if (lowerLabel && !originalPlaceholder) {
-      return `Nhập ${lowerLabel}`;
+      return `Chọn ${lowerLabel}`;
     }
     return originalPlaceholder;
   }, [lowerLabel, originalPlaceholder]);

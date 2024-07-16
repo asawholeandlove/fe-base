@@ -12,6 +12,7 @@ export interface TField {
   type: TFieldType;
   required: boolean;
   options?: string[];
+  defaultValue?: any;
 }
 
 export interface TForm {
