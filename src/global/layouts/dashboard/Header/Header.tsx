@@ -15,7 +15,7 @@ export default function Header() {
   const navigate = useNavigate();
 
   return (
-    <div className="fixed left-0 right-0 top-0 flex h-[65px] items-center justify-between border-b border-gray-300 bg-white px-10">
+    <div className="fixed left-0 right-0 top-0 z-10 flex h-[65px] items-center justify-between border-b border-gray-300 bg-white px-10">
       <div
         className="flex cursor-pointer items-center gap-2"
         onClick={() => navigate("/")}

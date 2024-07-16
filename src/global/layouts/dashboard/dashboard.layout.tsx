@@ -12,7 +12,7 @@ export default function DashboardLayout() {
         <Sidebar />
         {/* Content */}
         <div
-          className="ml-[260px] mt-[65px] rounded-lg bg-gray-50 p-5"
+          className="ml-[260px] mt-[65px] flex flex-col rounded-lg bg-gray-50 p-5"
           style={{ minHeight: "calc(100vh - 65px)" }}
         >
           <Outlet />

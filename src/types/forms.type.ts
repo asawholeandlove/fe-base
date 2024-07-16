@@ -21,4 +21,5 @@ export interface TForm {
   isPublic: boolean;
   fields: TField[];
   createdByUsername: string;
+  updatedAt: string;
 }
