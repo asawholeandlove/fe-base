@@ -15,6 +15,11 @@ export interface TField {
   defaultValue?: any;
 }
 
+export interface TFormPage {
+  isShow?: boolean;
+  content?: string;
+}
+
 export interface TForm {
   _id: string;
   title: string;
@@ -22,5 +27,7 @@ export interface TForm {
   isPublic: boolean;
   fields: TField[];
   createdByUsername: string;
+  startPage?: TFormPage;
+  endPage?: TFormPage;
   updatedAt: string;
 }

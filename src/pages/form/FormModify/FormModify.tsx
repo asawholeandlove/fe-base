@@ -6,6 +6,7 @@ import formApis from "~/apis/forms.api";
 import FieldsForm from "./components/FieldsForm";
 import { useQuery } from "@tanstack/react-query";
 import { ArrowLeftOutlined, BackwardFilled } from "@ant-design/icons";
+import Page from "./components/Page";
 
 export default function FormModify() {
   const { pathname } = useLocation();
@@ -91,8 +92,19 @@ export default function FormModify() {
               ),
             },
             { key: "questions", label: "Câu hỏi", children: <FieldsForm /> },
+
+            {
+              key: "startPage",
+              label: "Trang giới thiệu",
+              children: <Page name="startPage" />,
+            },
+            {
+              key: "endPage",
+              label: "Trang kết thúc",
+              children: <Page name="endPage" />,
+            },
           ].filter((item) => {
-            if (mode === "add") return item.key !== "questions";
+            if (mode === "add") return item.key === "basic";
             return true;
           })}
         />

@@ -1,6 +1,7 @@
 import { Select } from "antd";
 import { useMemo } from "react";
 import { ESelectProps } from "./types";
+import { StyledSelect } from "./styles";
 
 export default function ESelect({
   allowClear = true,
@@ -28,7 +29,7 @@ export default function ESelect({
   }, [lowerLabel, originalPlaceholder]);
 
   return (
-    <Select
+    <StyledSelect
       filterOption={filterOption}
       allowClear={allowClear}
       placeholder={placeholder}
